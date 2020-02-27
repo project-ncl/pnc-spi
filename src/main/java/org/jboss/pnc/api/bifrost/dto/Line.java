@@ -19,7 +19,7 @@ public class Line {
 
     private String id;
 
-    @JsonbProperty("@timestamp")
+    @JsonbProperty("timestamp")
     private String timestamp;
 
     private String loggerName;
