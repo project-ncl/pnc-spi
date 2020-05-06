@@ -6,7 +6,6 @@ import lombok.ToString;
 
 import javax.json.bind.Jsonb;
 import javax.json.bind.JsonbBuilder;
-import javax.json.bind.annotation.JsonbProperty;
 import java.util.Map;
 
 /**
@@ -19,7 +18,6 @@ public class Line {
 
     private String id;
 
-    @JsonbProperty("@timestamp")
     private String timestamp;
 
     private String sequence;
