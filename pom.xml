@@ -47,6 +47,7 @@
         <compiler-plugin.version>3.8.1</compiler-plugin.version>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
+        <tagSuffix/>
     </properties>
     <dependencies>
         <dependency>
@@ -89,10 +90,11 @@
                 <artifactId>maven-release-plugin</artifactId>
                 <version>2.5.3</version>
                 <configuration>
-                    <tagNameFormat>@{project.version}</tagNameFormat>
+                    <tagNameFormat>@{project.version}${tagSuffix}</tagNameFormat>
                     <autoVersionSubmodules>true</autoVersionSubmodules>
                     <useReleaseProfile>false</useReleaseProfile>
                     <releaseProfiles>release</releaseProfiles>
+                    <stagingRepository>https://oss.sonatype.org/service/local/staging/deploy/maven2/</stagingRepository>
                     <goals>deploy</goals>
                 </configuration>
             </plugin>
