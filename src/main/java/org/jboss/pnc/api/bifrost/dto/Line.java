@@ -26,6 +26,8 @@ public class Line {
 
     private String message;
 
+    private String stackTrace;
+
     private boolean last;
 
     private Map<String, String> mdc;
@@ -48,6 +50,7 @@ public class Line {
         builder.sequence = copy.getSequence();
         builder.loggerName = copy.getLoggerName();
         builder.message = copy.getMessage();
+        builder.stackTrace = copy.getStackTrace();
         builder.last = copy.isLast();
         builder.mdc = copy.getMdc();
         return builder;
@@ -76,6 +79,8 @@ public class Line {
         private String loggerName;
 
         private String message;
+
+        private String stackTrace;
 
         private boolean last;
 
@@ -109,6 +114,11 @@ public class Line {
             return this;
         }
 
+        public Builder stackTrace(String stackTrace) {
+            this.stackTrace = stackTrace;
+            return this;
+        }
+
         public Builder last(boolean last) {
             this.last = last;
             return this;
@@ -126,6 +136,7 @@ public class Line {
             line.sequence = this.sequence;
             line.loggerName = this.loggerName;
             line.message = this.message;
+            line.stackTrace = this.stackTrace;
             line.last = this.last;
             line.mdc = this.mdc;
             return line;

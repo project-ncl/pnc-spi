@@ -33,6 +33,7 @@ public interface Bifrost {
             @QueryParam("follow") boolean follow,
             @QueryParam("timeoutProbeString") String timeoutProbeString); // if string is defined the server is sending
                                                                           // given string as a connection probe. The
+
     @GET
     @Path("/")
     @Produces(MediaType.APPLICATION_JSON)
