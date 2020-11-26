@@ -56,7 +56,6 @@ public class Artifact {
 
     private final String pncId;
 
-    @NotNull
     private final ArtifactType artifactType;
 
     @NotBlank
