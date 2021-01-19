@@ -28,6 +28,7 @@ import java.net.URL;
 import java.util.HashSet;
 import java.util.Set;
 
+@ToString
 @JsonDeserialize(builder = Request.Builder.class)
 public class Request {
     private final Method method;

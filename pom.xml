@@ -103,6 +103,26 @@
             <version>2.11.2</version>
         </dependency>
         <dependency>
+            <groupId>com.redhat.red.build</groupId>
+            <artifactId>kojiji</artifactId>
+            <version>2.13</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.30</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.microprofile.openapi</groupId>
+            <artifactId>microprofile-openapi-api</artifactId>
+            <version>1.1.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.pnc.build.finder</groupId>
+            <artifactId>core</artifactId>
+            <version>2.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
             <version>5.7.0</version>
