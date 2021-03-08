@@ -17,17 +17,19 @@
  */
 package org.jboss.pnc.api.repour.dto;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Builder.Default;
 import lombok.Data;
 import lombok.ToString;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Request DTO to create an internal scm via Repour. The endpoint is POST /internal-scm
@@ -55,6 +57,7 @@ public class InternalScmCreationRequest {
      * Owner groups on who own that repository
      */
     @JsonProperty("owner_groups")
+    @Default
     private List<String> ownerGroups = new ArrayList<>();
 
     /**
