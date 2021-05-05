@@ -1,6 +1,6 @@
 /**
  * JBoss, Home of Professional Open Source.
- * Copyright 2021 Red Hat, Inc., and individual contributors
+ * Copyright 2014-2020 Red Hat, Inc., and individual contributors
  * as indicated by the @author tags.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,23 +15,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package org.jboss.pnc.api.enums;
 
-package org.jboss.pnc.api.dto;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.Builder;
-import lombok.Data;
-import lombok.extern.jackson.Jacksonized;
-
-import java.util.concurrent.TimeUnit;
-
-@Data
-@Builder(builderClassName = "Builder")
-@Jacksonized
-@JsonIgnoreProperties(ignoreUnknown = true)
-public class HeartbeatConfig {
-    private final Request request;
-    private final Long delay;
-    private final TimeUnit delayTimeUnit;
-
+/**
+ * This enum represents various types of errors found throughout validation
+ */
+public enum ValidationErrorType {
+    /**
+     * Validated entity has invalid format (f.e. regex pattern does not match).
+     */
+    FORMAT,
+    /**
+     * Validated entity already exists.
+     */
+    DUPLICATION
 }

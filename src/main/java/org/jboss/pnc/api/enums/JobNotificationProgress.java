@@ -1,6 +1,6 @@
 /**
  * JBoss, Home of Professional Open Source.
- * Copyright 2021 Red Hat, Inc., and individual contributors
+ * Copyright 2014-2020 Red Hat, Inc., and individual contributors
  * as indicated by the @author tags.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,23 +15,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package org.jboss.pnc.api.enums;
 
-package org.jboss.pnc.api.dto;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.Builder;
-import lombok.Data;
-import lombok.extern.jackson.Jacksonized;
-
-import java.util.concurrent.TimeUnit;
-
-@Data
-@Builder(builderClassName = "Builder")
-@Jacksonized
-@JsonIgnoreProperties(ignoreUnknown = true)
-public class HeartbeatConfig {
-    private final Request request;
-    private final Long delay;
-    private final TimeUnit delayTimeUnit;
-
+/**
+ * Enum describing job progress in notifications.
+ * 
+ * @author Honza Brázdil &lt;jbrazdil@redhat.com&gt;
+ */
+public enum JobNotificationProgress {
+    /**
+     * The job is waiting. For example build waiting for dependencies.
+     */
+    PENDING,
+    /**
+     * The job is running. For example build is building.
+     */
+    IN_PROGRESS,
+    /**
+     * The job has finished. For example build failed.
+     */
+    FINISHED
 }

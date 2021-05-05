@@ -1,6 +1,6 @@
 /**
  * JBoss, Home of Professional Open Source.
- * Copyright 2021 Red Hat, Inc., and individual contributors
+ * Copyright 2014-2020 Red Hat, Inc., and individual contributors
  * as indicated by the @author tags.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,23 +15,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package org.jboss.pnc.api.enums;
 
-package org.jboss.pnc.api.dto;
+/**
+ * @author <a href="mailto:matejonnet@gmail.com">Matej Lazar</a>
+ */
+public enum RebuildMode {
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.Builder;
-import lombok.Data;
-import lombok.extern.jackson.Jacksonized;
+    /**
+     * Check automatically captured dependencies on {@link org.jboss.pnc.model.BuildRecord}.
+     */
+    IMPLICIT_DEPENDENCY_CHECK,
 
-import java.util.concurrent.TimeUnit;
+    /**
+     * Check the user defined dependencies on {@link org.jboss.pnc.model.BuildConfiguration}.
+     */
+    EXPLICIT_DEPENDENCY_CHECK,
 
-@Data
-@Builder(builderClassName = "Builder")
-@Jacksonized
-@JsonIgnoreProperties(ignoreUnknown = true)
-public class HeartbeatConfig {
-    private final Request request;
-    private final Long delay;
-    private final TimeUnit delayTimeUnit;
-
+    /**
+     * Don't check anything and run the build anyway.
+     */
+    FORCE
 }

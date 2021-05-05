@@ -18,26 +18,26 @@
 
 package org.jboss.pnc.api.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.Value;
+import lombok.extern.jackson.Jacksonized;
+
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Singular;
-import lombok.Value;
-import lombok.extern.jackson.Jacksonized;
 import static org.jboss.pnc.api.constants.HttpHeaders.AUTHORIZATION_STRING;
 
-@Getter
+@Data
 @AllArgsConstructor
 @Jacksonized
 @Builder(builderClassName = "Builder")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Request {
     private final Method method;
     private final URI uri;

@@ -16,22 +16,24 @@
  * limitations under the License.
  */
 
-package org.jboss.pnc.api.dto;
+package org.jboss.pnc.api.environmentdriver.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Builder;
 import lombok.Data;
 import lombok.extern.jackson.Jacksonized;
+import org.jboss.pnc.api.dto.Request;
 
-import java.util.concurrent.TimeUnit;
-
+/**
+ * @author <a href="mailto:matejonnet@gmail.com">Matej Lazar</a>
+ */
 @Data
-@Builder(builderClassName = "Builder")
 @Jacksonized
+@Builder(builderClassName = "Builder")
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class HeartbeatConfig {
-    private final Request request;
-    private final Long delay;
-    private final TimeUnit delayTimeUnit;
+public class EnvironmentCreateResponse {
 
+    private final String environmentId;
+
+    private final Request cancel;
 }

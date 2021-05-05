@@ -1,0 +1,26 @@
+package org.jboss.pnc.api.repositorydriver.dto;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.Builder;
+import lombok.Data;
+import lombok.extern.jackson.Jacksonized;
+import org.jboss.pnc.api.dto.Request;
+import org.jboss.pnc.api.enums.BuildCategory;
+import org.jboss.pnc.api.enums.BuildType;
+
+/**
+ * @author <a href="mailto:matejonnet@gmail.com">Matej Lazar</a>
+ */
+@Data
+@Jacksonized
+@Builder(builderClassName = "Builder")
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class RepositoryPromoteRequest {
+
+    private final String buildContentId;
+    private final BuildType buildType;
+    private final boolean tempBuild;
+    private final BuildCategory buildCategory;
+    private final Request callback;
+    private final Request heartBeat;
+}

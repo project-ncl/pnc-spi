@@ -41,7 +41,6 @@ public enum BuildConfigurationParameterKeys {
             "Specify the amount of memory the builder pod should have available. Enter number of GiB, for example '4'"
                     + " = 4 GiB, '5.5' = 5632 MiB. Use this responsibly and only when needed!");
 
-
     /** The description to be shown to a user. */
     private String desc;
 
