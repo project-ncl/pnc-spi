@@ -17,9 +17,9 @@
  */
 package org.jboss.pnc.api.dto;
 
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.jackson.Jacksonized;
 
 /**
@@ -27,7 +27,7 @@ import lombok.extern.jackson.Jacksonized;
  *
  * @author Honza Brázdil &lt;jbrazdil@redhat.com&gt;
  */
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Data
 @Jacksonized
 @Builder(builderClassName = "Builder")

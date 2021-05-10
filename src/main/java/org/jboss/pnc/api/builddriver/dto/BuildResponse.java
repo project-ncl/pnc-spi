@@ -20,12 +20,14 @@ package org.jboss.pnc.api.builddriver.dto;
 
 import lombok.Builder;
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.jackson.Jacksonized;
 import org.jboss.pnc.api.dto.Request;
 
 /**
  * @author <a href="mailto:matejonnet@gmail.com">Matej Lazar</a>
  */
+@RequiredArgsConstructor
 @Data
 @Jacksonized
 @Builder(builderClassName = "Builder")

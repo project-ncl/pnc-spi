@@ -20,6 +20,7 @@ package org.jboss.pnc.api.repositorydriver.dto;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Builder;
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.jackson.Jacksonized;
 import org.jboss.pnc.api.enums.RepositoryType;
 
@@ -30,6 +31,7 @@ import javax.validation.constraints.NotNull;
  *
  * @author Jakub Bartecek &lt;jbartece@redhat.com&gt;
  */
+@RequiredArgsConstructor
 @Data
 @Jacksonized
 @Builder(builderClassName = "Builder")

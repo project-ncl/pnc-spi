@@ -3,12 +3,14 @@ package org.jboss.pnc.api.repositorydriver.dto;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Builder;
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.jackson.Jacksonized;
 import org.jboss.pnc.api.enums.ResultStatus;
 
 import java.util.Collections;
 import java.util.List;
 
+@RequiredArgsConstructor
 @Data
 @Jacksonized
 @Builder(builderClassName = "Builder")
