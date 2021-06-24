@@ -50,7 +50,7 @@ public class MavenBuiltArtifact extends BuiltArtifact {
             String groupId,
             String artifactId,
             String version,
-            int id,
+            String id,
             String filename,
             String architecture,
             String md5,

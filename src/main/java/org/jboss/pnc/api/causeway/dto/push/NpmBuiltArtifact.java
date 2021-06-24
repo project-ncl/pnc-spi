@@ -31,7 +31,7 @@ public class NpmBuiltArtifact extends BuiltArtifact {
     public NpmBuiltArtifact(
             String name,
             String version,
-            int id,
+            String id,
             String filename,
             String architecture,
             String md5,

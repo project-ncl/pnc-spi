@@ -30,7 +30,7 @@ import java.util.Objects;
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "@artifactType")
 @JsonSubTypes({ @JsonSubTypes.Type(NpmBuiltArtifact.class), @JsonSubTypes.Type(MavenBuiltArtifact.class) })
 public abstract class BuiltArtifact {
-    private final int id;
+    private final String id;
     @NonNull
     private final String filename;
     @NonNull
