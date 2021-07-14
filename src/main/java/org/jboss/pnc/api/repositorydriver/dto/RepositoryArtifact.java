@@ -47,6 +47,12 @@ public class RepositoryArtifact {
     private final String identifier;
 
     /**
+     * A purl is a URL string with format scheme:type/namespace/name@version?qualifiers#subpath useful to reliably
+     * reference the same software package using a simple and expressive syntax and conventions based on familiar URLs
+     */
+    protected final String purl;
+
+    /**
      * Category of the build denoting its support and usage
      */
     private final BuildCategory buildCategory;
