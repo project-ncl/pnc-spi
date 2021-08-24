@@ -30,6 +30,22 @@ public class MDCKeys {
      * Identifier of a running process.
      */
     public static final String PROCESS_CONTEXT_KEY = "processContext";
+
+    /**
+     * Sub-identifier of a running process, eg. operation retry attempt.
+     */
+    public static final String PROCESS_CONTEXT_VARIANT_KEY = "processContextVariant";
+
+    /**
+     * Event identifier used to calculate the duration
+     */
+    public static final String EVENT_NAME_KEY = "process_stage_name";
+
+    /**
+     * Event BEGIN or END used to calculate the duration
+     */
+    public static final String EVENT_TYPE_KEY = "process_stage_step";
+
     /**
      * Identifier of user who initiated the operation.
      */
