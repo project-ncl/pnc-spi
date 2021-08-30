@@ -19,6 +19,9 @@ import lombok.extern.jackson.Jacksonized;
 public class FinderResult {
 
     @NotEmpty
+    private String id;
+
+    @NotEmpty
     private URL url;
 
     @NotNull
