@@ -18,23 +18,26 @@
 package org.jboss.pnc.api.enums;
 
 /**
- * Enum describing job progress in notifications.
+ * Status of progress of a running/completed operation.
  *
- * @deprecated Use {@link ProgressStatus}
- * @author Honza Brázdil &lt;jbrazdil@redhat.com&gt;
+ *
  */
-@Deprecated
-public enum JobNotificationProgress {
+public enum ProgressStatus {
+
     /**
-     * The job is waiting. For example build waiting for dependencies.
+     * Initial status of an operation.
+     */
+    NEW,
+    /**
+     * The operation is waiting. For example build waiting for dependencies.
      */
     PENDING,
     /**
-     * The job is running. For example build is building.
+     * The operation is running. For example build is building.
      */
     IN_PROGRESS,
     /**
-     * The job has finished. For example build failed.
+     * The operation has finished. For example build failed.
      */
-    FINISHED
+    FINISHED;
 }
