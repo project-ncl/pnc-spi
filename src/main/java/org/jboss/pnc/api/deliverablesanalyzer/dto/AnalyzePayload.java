@@ -32,6 +32,11 @@ import org.jboss.pnc.api.dto.Request;
 @Jacksonized
 @Builder
 public class AnalyzePayload implements Serializable {
+
+    private static final long serialVersionUID = -2043312712105992478L;
+
+    private String operationId;
+
     private List<String> urls;
 
     private String config;

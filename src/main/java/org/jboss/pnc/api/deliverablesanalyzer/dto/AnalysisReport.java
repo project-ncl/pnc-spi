@@ -43,7 +43,7 @@ public class AnalysisReport implements Serializable {
     private List<FinderResult> results;
 
     /** Flag indicating if analysis was finished successfully */
-    private  boolean success;
+    private boolean success;
 
     /** Root cause of the analysis failure (if analysis failed) */
     private Throwable errorCause;
