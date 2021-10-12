@@ -22,6 +22,7 @@ public enum MDCHeaderKeys {
     USER_ID("log-user-id", MDCKeys.USER_ID_KEY),
     REQUEST_CONTEXT("log-request-context", MDCKeys.REQUEST_CONTEXT_KEY),
     PROCESS_CONTEXT("log-process-context", MDCKeys.PROCESS_CONTEXT_KEY),
+    PROCESS_CONTEXT_VARIANT("process-context-variant", MDCKeys.PROCESS_CONTEXT_VARIANT_KEY),
     TMP("log-tmp", MDCKeys.TMP_KEY),
     EXP("log-exp", MDCKeys.EXP_KEY);
 
