@@ -51,7 +51,7 @@ public class EnvironmentCreateResult {
         return EnvironmentCreateResult.builder().status(ResultStatus.FAILED).message(throwable.getMessage()).build();
     }
 
-    public static EnvironmentCreateResult temporarilyFailed(Throwable throwable) {
+    public static EnvironmentCreateResult systemError(Throwable throwable) {
         return EnvironmentCreateResult.builder()
                 .status(ResultStatus.SYSTEM_ERROR)
                 .message(throwable.getMessage())
