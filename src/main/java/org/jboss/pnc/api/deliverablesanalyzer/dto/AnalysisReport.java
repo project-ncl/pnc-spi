@@ -45,16 +45,12 @@ public class AnalysisReport implements Serializable {
     /** Flag indicating if analysis was finished successfully */
     private boolean success;
 
-    /** Root cause of the analysis failure (if analysis failed) */
-    private Throwable errorCause;
-
     public AnalysisReport(List<FinderResult> results) {
         this.results = results;
         success = true;
     }
 
-    public AnalysisReport(Throwable errorCause) {
+    public AnalysisReport() {
         success = false;
-        this.errorCause = errorCause;
     }
 }
