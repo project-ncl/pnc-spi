@@ -17,18 +17,15 @@
  */
 package org.jboss.pnc.api.deliverablesanalyzer.dto;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 import lombok.extern.jackson.Jacksonized;
+
+import javax.validation.constraints.NotBlank;
 
 /**
  *
@@ -65,4 +62,5 @@ public class MavenArtifact extends Artifact {
         }
     }
 
+    public abstract static class MavenArtifactBuilder<C extends MavenArtifact, B extends MavenArtifact.MavenArtifactBuilder<C, B>> extends ArtifactBuilder<C, B> { }
 }

@@ -17,19 +17,17 @@
  */
 package org.jboss.pnc.api.deliverablesanalyzer.dto;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Positive;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
-
 import lombok.Data;
 import lombok.experimental.SuperBuilder;
 import lombok.extern.jackson.Jacksonized;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Positive;
 
 /**
  *
@@ -73,5 +71,7 @@ public class Artifact {
     private final String sha256;
 
     private final boolean builtFromSource;
+
+    public abstract static class ArtifactBuilder<C extends Artifact, B extends Artifact.ArtifactBuilder<C, B>> {}
 
 }

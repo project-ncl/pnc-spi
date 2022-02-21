@@ -17,16 +17,15 @@
  */
 package org.jboss.pnc.api.deliverablesanalyzer.dto;
 
-import javax.validation.constraints.NotBlank;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 import lombok.extern.jackson.Jacksonized;
+
+import javax.validation.constraints.NotBlank;
 
 /**
  *
@@ -55,4 +54,7 @@ public class NPMArtifact extends Artifact {
             return new NPMArtifact(this);
         }
     }
+
+    public abstract static class NPMArtifactBuilder<C extends NPMArtifact, B extends NPMArtifact.NPMArtifactBuilder<C, B>> extends ArtifactBuilder<C, B> {}
+
 }
