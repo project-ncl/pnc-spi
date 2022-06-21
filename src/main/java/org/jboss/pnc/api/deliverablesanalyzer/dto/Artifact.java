@@ -41,7 +41,7 @@ import javax.validation.constraints.Positive;
 @JsonTypeInfo(
         use = JsonTypeInfo.Id.NAME,
         include = JsonTypeInfo.As.EXISTING_PROPERTY,
-        property = "type",
+        property = "artifactType",
         defaultImpl = Artifact.class)
 @JsonSubTypes({ @JsonSubTypes.Type(value = MavenArtifact.class, name = "MAVEN"),
         @JsonSubTypes.Type(value = NPMArtifact.class, name = "NPM") })
