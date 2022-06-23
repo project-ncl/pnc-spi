@@ -52,6 +52,8 @@ public class Line {
 
     private String subscriptionTopic;
 
+    private String logLevel;
+
     public static Builder newBuilder() {
         return new Builder();
     }
@@ -71,6 +73,7 @@ public class Line {
         builder.stackTrace = copy.getStackTrace();
         builder.last = copy.isLast();
         builder.mdc = copy.getMdc();
+        builder.logLevel = copy.getLogLevel();
         return builder;
     }
 
@@ -101,6 +104,8 @@ public class Line {
         private String stackTrace;
 
         private boolean last;
+
+        private String logLevel;
 
         private Map<String, String> mdc;
 
@@ -147,6 +152,11 @@ public class Line {
             return this;
         }
 
+        public Builder logLevel(String logLevel) {
+            this.logLevel = logLevel;
+            return this;
+        }
+
         public Line build() {
             Line line = new Line();
             line.id = this.id;
@@ -157,6 +167,7 @@ public class Line {
             line.stackTrace = this.stackTrace;
             line.last = this.last;
             line.mdc = this.mdc;
+            line.logLevel = this.logLevel;
             return line;
         }
     }
