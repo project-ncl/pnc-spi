@@ -24,7 +24,10 @@ public enum MDCHeaderKeys {
     PROCESS_CONTEXT("log-process-context", MDCKeys.PROCESS_CONTEXT_KEY),
     PROCESS_CONTEXT_VARIANT("process-context-variant", MDCKeys.PROCESS_CONTEXT_VARIANT_KEY),
     TMP("log-tmp", MDCKeys.TMP_KEY),
-    EXP("log-exp", MDCKeys.EXP_KEY);
+    EXP("log-exp", MDCKeys.EXP_KEY),
+    TRACE_ID("trace-id", MDCKeys.TRACE_ID_KEY),
+    SPAN_ID("span-id", MDCKeys.SPAN_ID_KEY),
+    PARENT_ID("parent-id", MDCKeys.PARENT_ID_KEY);
 
     private final String headerName;
     private final String mdcKey;

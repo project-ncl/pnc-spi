@@ -73,4 +73,30 @@ public class MDCKeys {
 
     public static final String REQUEST_TOOK = "request.took";
     public static final String RESPONSE_STATUS = "response.status";
+
+    /**
+     * This is the ID of the whole trace forest and is used to uniquely identify a distributed trace through a system.
+     * <p>
+     * Value: 16-byte array
+     * </p>
+     */
+    public static final String TRACE_ID_KEY = "traceId";
+
+    /**
+     * This is the ID of this request as known by the caller (in some tracing systems, this is known as the span-id,
+     * where a span is the execution of a client request).
+     * <p>
+     * Value: 8-byte array
+     * </p>
+     */
+    public static final String SPAN_ID_KEY = "spanId";
+
+    /**
+     * This is the ID of this request as known by the caller (in some tracing systems, this is known as the span-id,
+     * where a span is the execution of a client request).
+     * <p>
+     * Value: 8-byte array
+     * </p>
+     */
+    public static final String PARENT_ID_KEY = "parentId";
 }
