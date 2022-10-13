@@ -27,7 +27,9 @@ public enum MDCHeaderKeys {
     EXP("log-exp", MDCKeys.EXP_KEY),
     TRACE_ID("trace-id", MDCKeys.TRACE_ID_KEY),
     SPAN_ID("span-id", MDCKeys.SPAN_ID_KEY),
-    PARENT_ID("parent-id", MDCKeys.PARENT_ID_KEY);
+    PARENT_ID("parent-id", MDCKeys.PARENT_ID_KEY),
+    TRACE_FLAGS("trace-flags", MDCKeys.TRACE_FLAGS_KEY),
+    TRACE_STATE("trace-state", MDCKeys.TRACE_STATE_KEY);
 
     private final String headerName;
     private final String mdcKey;

@@ -99,4 +99,20 @@ public class MDCKeys {
      * </p>
      */
     public static final String PARENT_ID_KEY = "parentId";
+
+    /**
+     * An 8-bit field that controls tracing flags such as sampling, trace level, etc.
+     * <p>
+     * Value: 8-bit
+     * </p>
+     */
+    public static final String TRACE_FLAGS_KEY = "traceFlags";
+
+    /**
+     * The main purpose of the tracestate HTTP header is to provide additional vendor-specific trace identification
+     * information across different distributed tracing systemsThe main purpose of the tracestate HTTP header is to
+     * provide additional vendor-specific trace identification information across different distributed tracing systems.
+     */
+    public static final String TRACE_STATE_KEY = "traceState";
+
 }
