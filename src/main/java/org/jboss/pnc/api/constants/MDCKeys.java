@@ -50,6 +50,12 @@ public class MDCKeys {
      * Identifier of user who initiated the operation.
      */
     public static final String USER_ID_KEY = "userId";
+
+    /**
+     * Username who initiated the operation.
+     */
+    public static final String USER_NAME_KEY = "user";
+
     /**
      * Indicator if the context belongs to temporary build.
      *
@@ -114,5 +120,16 @@ public class MDCKeys {
      * provide additional vendor-specific trace identification information across different distributed tracing systems.
      */
     public static final String TRACE_STATE_KEY = "traceState";
+
+    /**
+     * Internet Protocol (IP) address of the client or last proxy that sent the request
+     */
+    public static final String SRC_IP_KEY = "srcIp";
+
+    /**
+     * The X-Forwarded-For request header is a de-facto standard header for identifying the originating IP address of a
+     * client connecting to a web server through a proxy server.
+     */
+    public static final String X_FORWARDED_FOR_KEY = "xForwardedFor";
 
 }
