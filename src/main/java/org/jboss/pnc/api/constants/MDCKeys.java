@@ -89,6 +89,15 @@ public class MDCKeys {
     public static final String TRACE_ID_KEY = "traceId";
 
     /**
+     * This is the ID of the whole trace forest and is used to uniquely identify a distributed trace through a system,
+     * in SLF4J format.
+     * <p>
+     * Value: 16-byte array
+     * </p>
+     */
+    public static final String SLF4J_TRACE_ID_KEY = "trace_id";
+
+    /**
      * This is the ID of this request as known by the caller (in some tracing systems, this is known as the span-id,
      * where a span is the execution of a client request).
      * <p>
@@ -96,6 +105,15 @@ public class MDCKeys {
      * </p>
      */
     public static final String SPAN_ID_KEY = "spanId";
+
+    /**
+     * This is the ID of this request as known by the caller (in some tracing systems, this is known as the span-id,
+     * where a span is the execution of a client request), in SLF4J format.
+     * <p>
+     * Value: 8-byte array
+     * </p>
+     */
+    public static final String SLF4J_SPAN_ID_KEY = "span_id";
 
     /**
      * This is the ID of this request as known by the caller (in some tracing systems, this is known as the span-id,
@@ -113,6 +131,14 @@ public class MDCKeys {
      * </p>
      */
     public static final String TRACE_FLAGS_KEY = "traceFlags";
+
+    /**
+     * An 8-bit field that controls tracing flags such as sampling, trace level, etc, in SLF4J format.
+     * <p>
+     * Value: 8-bit
+     * </p>
+     */
+    public static final String SLF4J_TRACE_FLAGS_KEY = "trace_flags";
 
     /**
      * The main purpose of the tracestate HTTP header is to provide additional vendor-specific trace identification
