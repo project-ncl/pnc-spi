@@ -29,7 +29,10 @@ public enum MDCHeaderKeys {
     SPAN_ID("span-id", MDCKeys.SPAN_ID_KEY),
     PARENT_ID("parent-id", MDCKeys.PARENT_ID_KEY),
     TRACE_FLAGS("trace-flags", MDCKeys.TRACE_FLAGS_KEY),
-    TRACE_STATE("trace-state", MDCKeys.TRACE_STATE_KEY);
+    TRACE_STATE("trace-state", MDCKeys.TRACE_STATE_KEY),
+    SLF4J_TRACE_ID("trace-id", MDCKeys.SLF4J_TRACE_ID_KEY),
+    SLF4J_SPAN_ID("span-id", MDCKeys.SLF4J_SPAN_ID_KEY),
+    SLF4J_TRACE_FLAGS("trace-flags", MDCKeys.SLF4J_TRACE_FLAGS_KEY);
 
     private final String headerName;
     private final String mdcKey;
