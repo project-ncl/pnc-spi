@@ -32,7 +32,8 @@ public enum MDCHeaderKeys {
     TRACE_STATE("trace-state", MDCKeys.TRACE_STATE_KEY),
     SLF4J_TRACE_ID("trace-id", MDCKeys.SLF4J_TRACE_ID_KEY),
     SLF4J_SPAN_ID("span-id", MDCKeys.SLF4J_SPAN_ID_KEY),
-    SLF4J_TRACE_FLAGS("trace-flags", MDCKeys.SLF4J_TRACE_FLAGS_KEY);
+    SLF4J_TRACE_FLAGS("trace-flags", MDCKeys.SLF4J_TRACE_FLAGS_KEY),
+    BUILD_ID("log-build-id", MDCKeys.BUILD_ID_KEY);
 
     private final String headerName;
     private final String mdcKey;
