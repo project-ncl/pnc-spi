@@ -133,6 +133,14 @@ public class MDCKeys {
     public static final String TRACE_FLAGS_KEY = "traceFlags";
 
     /**
+     * An boolean value indicating whether the trace is sampled or not
+     * <p>
+     * Value: "true" or "false"
+     * </p>
+     */
+    public static final String TRACE_SAMPLED_KEY = "sampled";
+
+    /**
      * An 8-bit field that controls tracing flags such as sampling, trace level, etc, in SLF4J format.
      * <p>
      * Value: 8-bit
