@@ -23,6 +23,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.jackson.Jacksonized;
+
+import org.jboss.pnc.api.enums.ArtifactQuality;
 import org.jboss.pnc.api.enums.BuildCategory;
 
 import javax.validation.constraints.NotNull;
@@ -53,7 +55,12 @@ public class RepositoryArtifact {
     protected final String purl;
 
     /**
-     * Category of the build denoting its support and usage
+     * Quality level of the artifact.
+     */
+    private final ArtifactQuality artifactQuality;
+
+    /**
+     * Category of the build denoting its support and usage.
      */
     private final BuildCategory buildCategory;
 
