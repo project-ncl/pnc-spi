@@ -81,6 +81,27 @@ public class MDCKeys {
     public static final String RESPONSE_STATUS = "response.status";
 
     /**
+     * The traceparent represents the incoming request in a tracing system in a common format, understood by all
+     * vendors. see https://www.w3.org/TR/trace-context-1/#trace-context-http-headers-format
+     * <p>
+     * Value: {1-byte}-{16-byte array}-{8-byte array}-{8-bit field} Example:
+     * 00-0af7651916cd43dd8448eb211c80319c-b9c7c989f97918e1-01
+     * </p>
+     */
+    public static final String TRACEPARENT_KEY = "traceparent";
+
+    /**
+     * The tracestate field value is a list of list-members separated by commas (,). A list-member is a key/value pair
+     * separated by an equals sign (=). Spaces and horizontal tabs surrounding list-members are ignored. There can be a
+     * maximum of 32 list-members in a list.
+     * <p>
+     * Value: list of key/value pair (separated by an equals sign (=)), separated by commas (,) Example:
+     * rojo=00f067aa0ba902b7,congo=t61rcWkgMzE
+     * </p>
+     */
+    public static final String TRACESTATE_KEY = "tracestate";
+
+    /**
      * This is the ID of the whole trace forest and is used to uniquely identify a distributed trace through a system.
      * <p>
      * Value: 16-byte array
@@ -125,6 +146,15 @@ public class MDCKeys {
     public static final String PARENT_ID_KEY = "parentId";
 
     /**
+     * This is the ID of this request as known by the caller (in some tracing systems, this is known as the span-id,
+     * where a span is the execution of a client request), in SLF4J format.
+     * <p>
+     * Value: 8-byte array
+     * </p>
+     */
+    public static final String SLF4J_PARENT_ID_KEY = "parent_id";
+
+    /**
      * An 8-bit field that controls tracing flags such as sampling, trace level, etc.
      * <p>
      * Value: 8-bit
@@ -154,6 +184,14 @@ public class MDCKeys {
      * provide additional vendor-specific trace identification information across different distributed tracing systems.
      */
     public static final String TRACE_STATE_KEY = "traceState";
+
+    /**
+     * The main purpose of the tracestate HTTP header is to provide additional vendor-specific trace identification
+     * information across different distributed tracing systemsThe main purpose of the tracestate HTTP header is to
+     * provide additional vendor-specific trace identification information across different distributed tracing systems,
+     * in SLF4J format.
+     */
+    public static final String SLF4J_TRACE_STATE_KEY = "trace_state";
 
     /**
      * Internet Protocol (IP) address of the client or last proxy that sent the request
