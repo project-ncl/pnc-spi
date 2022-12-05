@@ -25,6 +25,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.extern.jackson.Jacksonized;
 
+import javax.validation.Valid;
+
 /**
  * An object container for the results of the analysis
  *
@@ -40,7 +42,7 @@ import lombok.extern.jackson.Jacksonized;
 public class AnalysisReport implements Serializable {
 
     /** Results of the analysis (if analysis was successful) */
-    private List<FinderResult> results;
+    private List<@Valid FinderResult> results;
 
     /** Flag indicating if analysis was finished successfully */
     private boolean success;

@@ -26,7 +26,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.Value;
 import lombok.extern.jackson.Jacksonized;
+import org.jboss.pnc.api.dto.validation.ValidURI;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
@@ -39,9 +43,15 @@ import static org.jboss.pnc.api.constants.HttpHeaders.AUTHORIZATION_STRING;
 @Builder(builderClassName = "Builder")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Request {
+
+    @NotNull
     private final Method method;
+
+    @ValidURI
     private final URI uri;
-    private final List<Header> headers;
+
+    private final List<@Valid Header> headers;
+
     private final Object attachment;
 
     public Request(Method method, URI uri) {
@@ -77,8 +87,11 @@ public class Request {
     @NoArgsConstructor(force = true, access = AccessLevel.PRIVATE) // To make Jackson happy
     @AllArgsConstructor
     public static class Header {
-        private final String name;
-        private final String value;
+        @NotBlank(message = "Header name cannot be empty")
+        String name;
+
+        @NotNull(message = "Header value cannot be missing")
+        String value;
 
         @Override
         public String toString() {
