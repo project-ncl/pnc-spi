@@ -63,7 +63,7 @@ public class Request {
     }
 
     public enum Method {
-        GET, POST, PUT, DELETE, HEAD;
+        GET, POST, PUT, DELETE, HEAD, PATCH, OPTIONS
     }
 
     public static class Builder {
