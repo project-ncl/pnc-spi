@@ -50,4 +50,7 @@ public class EnvironmentCreateRequest {
     private final String podMemoryOverride;
 
     private final boolean allowSshDebug;
+
+    private final String buildConfigId;
+
 }
