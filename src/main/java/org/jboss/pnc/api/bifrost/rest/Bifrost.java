@@ -22,6 +22,7 @@ import org.jboss.pnc.api.bifrost.enums.Direction;
 import org.jboss.pnc.api.bifrost.dto.Line;
 import org.jboss.pnc.api.bifrost.dto.MetaData;
 
+import javax.validation.constraints.Min;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -48,6 +49,8 @@ public interface Bifrost {
             @QueryParam("afterLine") Line afterLine,
             @QueryParam("direction") Direction direction,
             @QueryParam("maxLines") Integer maxLines,
+            @QueryParam("batchSize") Integer batchSize,
+            @QueryParam("batchDelay") @Min(250) Integer batchDelay,
             @QueryParam("follow") boolean follow,
             @QueryParam("timeoutProbeString") String timeoutProbeString); // if string is defined the server is sending
                                                                           // given string as a connection probe. The
@@ -60,7 +63,9 @@ public interface Bifrost {
             @QueryParam("prefixFilters") String prefixFilters,
             @QueryParam("afterLine") Line afterLine,
             @QueryParam("direction") Direction direction,
-            @QueryParam("maxLines") Integer maxLines) throws IOException;
+            @QueryParam("maxLines") Integer maxLines,
+            @QueryParam("batchSize") Integer batchSize,
+            @QueryParam("batchDelay") @Min(250) Integer batchDelay) throws IOException;
 
     @GET
     @Path("/metadata")
@@ -70,6 +75,8 @@ public interface Bifrost {
             @QueryParam("prefixFilters") String prefixFilters,
             @QueryParam("afterLine") Line afterLine,
             @QueryParam("direction") Direction direction,
-            @QueryParam("maxLines") Integer maxLines) throws IOException;
+            @QueryParam("maxLines") Integer maxLines,
+            @QueryParam("batchSize") Integer batchSize,
+            @QueryParam("batchDelay") @Min(250) Integer batchDelay) throws IOException;
 
 }
