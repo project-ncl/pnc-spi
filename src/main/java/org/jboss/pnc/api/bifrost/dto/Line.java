@@ -21,6 +21,7 @@ package org.jboss.pnc.api.bifrost.dto;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.jboss.pnc.api.bifrost.enums.Format;
 
 import javax.json.bind.Jsonb;
 import javax.json.bind.JsonbBuilder;
@@ -75,7 +76,19 @@ public class Line {
     }
 
     public String asString() {
-        return getTimestamp() + " " + getLoggerName() + " " + getMessage();
+        return asString(Format.DEFAULT);
+    }
+
+    public String asString(Format format) {
+        switch (format) {
+            case TIMESTAMP:
+                return getTimestamp() + " " + getMessage();
+            case PLAIN:
+                return getMessage();
+            case DEFAULT:
+            default:
+                return getTimestamp() + " " + getLoggerName() + " " + getMessage();
+        }
     }
 
     // @JsonPOJOBuilder(withPrefix = "")

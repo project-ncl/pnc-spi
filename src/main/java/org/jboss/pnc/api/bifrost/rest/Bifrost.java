@@ -21,9 +21,11 @@ package org.jboss.pnc.api.bifrost.rest;
 import org.jboss.pnc.api.bifrost.enums.Direction;
 import org.jboss.pnc.api.bifrost.dto.Line;
 import org.jboss.pnc.api.bifrost.dto.MetaData;
+import org.jboss.pnc.api.bifrost.enums.Format;
 
 import javax.validation.constraints.Min;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DefaultValue;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -48,9 +50,10 @@ public interface Bifrost {
             @QueryParam("prefixFilters") String prefixFilters,
             @QueryParam("afterLine") Line afterLine,
             @QueryParam("direction") Direction direction,
+            @QueryParam("format") @DefaultValue("DEFAULT") Format format,
             @QueryParam("maxLines") Integer maxLines,
             @QueryParam("batchSize") @Min(1) Integer batchSize,
-            @QueryParam("batchDelay") @Min(250) Integer batchDelay,
+            @QueryParam("batchDelay") @Min(200) Integer batchDelay,
             @QueryParam("follow") boolean follow,
             @QueryParam("timeoutProbeString") String timeoutProbeString); // if string is defined the server is sending
                                                                           // given string as a connection probe. The
