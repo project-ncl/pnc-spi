@@ -49,7 +49,7 @@ public interface Bifrost {
             @QueryParam("afterLine") Line afterLine,
             @QueryParam("direction") Direction direction,
             @QueryParam("maxLines") Integer maxLines,
-            @QueryParam("batchSize") Integer batchSize,
+            @QueryParam("batchSize") @Min(1) Integer batchSize,
             @QueryParam("batchDelay") @Min(250) Integer batchDelay,
             @QueryParam("follow") boolean follow,
             @QueryParam("timeoutProbeString") String timeoutProbeString); // if string is defined the server is sending
@@ -64,8 +64,7 @@ public interface Bifrost {
             @QueryParam("afterLine") Line afterLine,
             @QueryParam("direction") Direction direction,
             @QueryParam("maxLines") Integer maxLines,
-            @QueryParam("batchSize") Integer batchSize,
-            @QueryParam("batchDelay") @Min(250) Integer batchDelay) throws IOException;
+            @QueryParam("batchSize") @Min(1) Integer batchSize) throws IOException;
 
     @GET
     @Path("/metadata")
@@ -76,7 +75,6 @@ public interface Bifrost {
             @QueryParam("afterLine") Line afterLine,
             @QueryParam("direction") Direction direction,
             @QueryParam("maxLines") Integer maxLines,
-            @QueryParam("batchSize") Integer batchSize,
-            @QueryParam("batchDelay") @Min(250) Integer batchDelay) throws IOException;
+            @QueryParam("batchSize") @Min(1) Integer batchSize) throws IOException;
 
 }
