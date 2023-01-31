@@ -25,6 +25,7 @@ import org.jboss.pnc.api.bifrost.enums.Format;
 
 import javax.json.bind.Jsonb;
 import javax.json.bind.JsonbBuilder;
+import java.text.MessageFormat;
 import java.util.Map;
 
 /**
@@ -95,7 +96,7 @@ public class Line {
 
     private String getLevel() {
         if (mdc.containsKey("level")) {
-            return mdc.get("level") + " ";
+            return MessageFormat.format("[{0}] ", mdc.get("level"));
         }
         return null;
     }
