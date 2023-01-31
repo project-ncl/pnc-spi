@@ -85,10 +85,19 @@ public class Line {
                 return getTimestamp() + " " + getMessage();
             case PLAIN:
                 return getMessage();
+            case LEVEL:
+                return getLevel() + getMessage();
             case DEFAULT:
             default:
                 return getTimestamp() + " " + getLoggerName() + " " + getMessage();
         }
+    }
+
+    private String getLevel() {
+        if (mdc.containsKey("level")) {
+            return mdc.get("level") + " ";
+        }
+        return null;
     }
 
     // @JsonPOJOBuilder(withPrefix = "")
