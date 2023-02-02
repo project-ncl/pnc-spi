@@ -25,4 +25,6 @@ public class RepositoryPromoteRequest {
     private final BuildCategory buildCategory;
     private final Request callback;
     private final Request heartBeat;
+    private final boolean archivalEnabled;
+    private final String buildConfigurationId;
 }
