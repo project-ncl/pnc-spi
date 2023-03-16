@@ -49,4 +49,10 @@ public class Attributes {
      */
     public static final String BLACKLIST_REASON = "BLACKLIST_REASON";
 
+    /**
+     * Attribute key for org.jboss.pnc.dto.Environment to be used on deprecated environments, to point to environment
+     * that replaces the deprecated one.
+     */
+    public static final String DEPRECATION_REPLACEMENT = "DEPRECATION_REPLACEMENT";
+
 }
