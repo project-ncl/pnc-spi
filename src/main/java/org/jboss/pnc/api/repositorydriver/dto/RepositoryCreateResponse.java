@@ -20,4 +20,8 @@ public class RepositoryCreateResponse {
 
     private final String repositoryDeployUrl;
 
+    private final boolean sidecarEnabled;
+
+    private final boolean sidecarArchiveEnabled;
+
 }

@@ -53,4 +53,8 @@ public class EnvironmentCreateRequest {
 
     private final String buildConfigId;
 
+    private final boolean sidecarEnabled;
+
+    private final boolean sidecarArchiveEnabled;
+
 }

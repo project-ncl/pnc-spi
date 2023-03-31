@@ -42,7 +42,6 @@ public class EnvironmentCreateResult {
     private final String sshPassword;
     private final ResultStatus status;
     private final String message;
-    private final boolean archivalEnabled;
 
     public static EnvironmentCreateResult cancelled() {
         return EnvironmentCreateResult.builder().status(ResultStatus.CANCELLED).build();
@@ -59,17 +58,12 @@ public class EnvironmentCreateResult {
                 .build();
     }
 
-    public static EnvironmentCreateResult success(
-            URI environmentBaseUri,
-            String workingDirectory,
-            String sshPassword,
-            boolean archivalEnabled) {
+    public static EnvironmentCreateResult success(URI environmentBaseUri, String workingDirectory, String sshPassword) {
         return EnvironmentCreateResult.builder()
                 .status(ResultStatus.SUCCESS)
                 .environmentBaseUri(environmentBaseUri)
                 .workingDirectory(workingDirectory)
                 .sshPassword(sshPassword)
-                .archivalEnabled(archivalEnabled)
                 .build();
     }
 
