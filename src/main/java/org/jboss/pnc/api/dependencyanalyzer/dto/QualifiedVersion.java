@@ -14,25 +14,25 @@ import java.util.Set;
 @Getter
 @Builder
 @ToString
-public class Version {
+public class QualifiedVersion {
 
     private final String version;
 
     @Singular
     private final Map<Qualifier, Set<String>> qualifiers;
 
-    public Version(String version, Map<Qualifier, Set<String>> qualifiers) {
+    public QualifiedVersion(String version, Map<Qualifier, Set<String>> qualifiers) {
         this.version = version;
         this.qualifiers = qualifiers;
     }
 
-    public Version(String version) {
+    public QualifiedVersion(String version) {
         this.version = version;
         this.qualifiers = new HashMap<>();
     }
 
-    public static Version of(String version) {
-        return new Version(version);
+    public static QualifiedVersion of(String version) {
+        return new QualifiedVersion(version);
     }
 
     public boolean has(Qualifier qualifier, String[] values) {
