@@ -35,7 +35,6 @@ import org.jboss.pnc.api.enums.ResultStatus;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class BuildCompleted {
 
-    private final String buildLog;
     private final ResultStatus buildStatus;
     private final String outputChecksum;
     private final boolean debugEnabled;

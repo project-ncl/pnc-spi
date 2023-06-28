@@ -20,15 +20,9 @@ public class RepositoryPromoteResult {
     private final List<RepositoryArtifact> builtArtifacts;
     private final List<RepositoryArtifact> dependencies;
     private final String buildContentId;
-    private final String message;
     private final ResultStatus status;
 
-    public static RepositoryPromoteResult failed(String buildContentId, String message, ResultStatus status) {
-        return new RepositoryPromoteResult(
-                Collections.emptyList(),
-                Collections.emptyList(),
-                buildContentId,
-                message,
-                status);
+    public static RepositoryPromoteResult failed(String buildContentId, ResultStatus status) {
+        return new RepositoryPromoteResult(Collections.emptyList(), Collections.emptyList(), buildContentId, status);
     }
 }
