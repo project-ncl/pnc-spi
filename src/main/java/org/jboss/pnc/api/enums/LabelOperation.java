@@ -32,5 +32,16 @@ public enum LabelOperation {
     /**
      * Used when old label has been removed from its report.
      */
-    REMOVED
+    REMOVED;
+
+    public String getPresentTense() {
+        switch (this) {
+            case ADDED:
+                return "add";
+            case REMOVED:
+                return "remove";
+            default:
+                throw new UnsupportedOperationException("Unable to get present tense for the label");
+        }
+    }
 }
