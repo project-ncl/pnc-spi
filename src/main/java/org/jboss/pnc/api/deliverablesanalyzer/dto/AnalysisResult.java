@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NonNull;
 import lombok.extern.jackson.Jacksonized;
+import org.jboss.pnc.api.dto.Request;
 
 import java.util.List;
 
@@ -21,4 +22,7 @@ public class AnalysisResult {
     private final List<FinderResult> results;
 
     private final boolean scratch;
+
+    @NonNull
+    private final Request callback;
 }
