@@ -25,6 +25,8 @@ import lombok.Data;
 import lombok.experimental.SuperBuilder;
 import lombok.extern.jackson.Jacksonized;
 
+import java.util.Collection;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Positive;
@@ -71,6 +73,10 @@ public class Artifact {
     private final String sha256;
 
     private final boolean builtFromSource;
+
+    private final Collection<String> archiveFilenames;
+
+    private final Collection<String> archiveUnmatchedFilenames;
 
     public abstract static class ArtifactBuilder<C extends Artifact, B extends Artifact.ArtifactBuilder<C, B>> {
     }
