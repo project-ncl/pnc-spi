@@ -52,6 +52,7 @@ public class RepositoryArtifact {
      * A purl is a URL string with format scheme:type/namespace/name@version?qualifiers#subpath useful to reliably
      * reference the same software package using a simple and expressive syntax and conventions based on familiar URLs
      */
+    @NotNull
     protected final String purl;
 
     /**
@@ -67,26 +68,31 @@ public class RepositoryArtifact {
     /**
      * MD5 checksum of the artifact.
      */
+    @NotNull
     private final String md5;
 
     /**
      * SHA-1 checksum of the artifact.
      */
+    @NotNull
     private final String sha1;
 
     /**
      * SHA-256 checksum of the artifact.
      */
+    @NotNull
     private final String sha256;
 
     /**
      * Filename of the artifact.
      */
+    @NotNull
     private final String filename;
 
     /**
      * Path in the repository where the artifact file is available.
      */
+    @NotNull
     private final String deployPath;
 
     /**
