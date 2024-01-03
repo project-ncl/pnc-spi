@@ -66,7 +66,7 @@ public interface Bifrost {
             @QueryParam("matchFilters") String matchFilters,
             @QueryParam("prefixFilters") String prefixFilters,
             @QueryParam("afterLine") Line afterLine,
-            @QueryParam("direction") Direction direction,
+            @QueryParam("direction") @DefaultValue("ASC") Direction direction,
             @QueryParam("maxLines") Integer maxLines,
             @QueryParam("batchSize") @Min(1) Integer batchSize) throws IOException;
 
@@ -77,7 +77,7 @@ public interface Bifrost {
             @QueryParam("matchFilters") String matchFilters,
             @QueryParam("prefixFilters") String prefixFilters,
             @QueryParam("afterLine") Line afterLine,
-            @QueryParam("direction") Direction direction,
+            @QueryParam("direction") @DefaultValue("ASC") Direction direction,
             @QueryParam("maxLines") Integer maxLines,
             @QueryParam("batchSize") @Min(1) Integer batchSize) throws IOException;
 
