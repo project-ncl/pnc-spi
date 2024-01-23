@@ -26,4 +26,5 @@ public class GenericSettingsKeys {
     public static final String ANNOUNCEMENT_BANNER = "ANNOUNCEMENT_BANNER";
     public static final String MAINTENANCE_MODE = "MAINTENANCE_MODE";
     public static final String PNC_VERSION = "PNC_VERSION";
+    public static final String ANNOUNCEMENT_ETA = "ANNOUNCEMENT_ETA";
 }
