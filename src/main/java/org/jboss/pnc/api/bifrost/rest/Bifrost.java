@@ -71,11 +71,23 @@ public interface Bifrost {
             @QueryParam("maxLines") Integer maxLines,
             @QueryParam("batchSize") @Min(1) Integer batchSize) throws IOException;
 
+    /**
+     * Get the final log of the build + tag
+     */
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     @Consumes
     @Path("/final-log/{buildId}/{tag}")
     Response getFinalLog(@PathParam("buildId") String processContext, @PathParam("tag") String tag);
+
+    /**
+     * Get the final log size of the build + tag
+     */
+    @GET
+    @Produces(MediaType.TEXT_PLAIN)
+    @Consumes
+    @Path("/final-log/{buildId}/{tag}/size")
+    long getFinalLogSize(@PathParam("buildId") String buildId, @PathParam("tag") String tag);
 
     @GET
     @Path("/metadata")
