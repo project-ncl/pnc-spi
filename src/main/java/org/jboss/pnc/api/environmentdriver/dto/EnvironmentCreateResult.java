@@ -41,21 +41,17 @@ public class EnvironmentCreateResult {
     private final String workingDirectory;
     private final String sshPassword;
     private final ResultStatus status;
-    private final String message;
 
     public static EnvironmentCreateResult cancelled() {
         return EnvironmentCreateResult.builder().status(ResultStatus.CANCELLED).build();
     }
 
     public static EnvironmentCreateResult failed(Throwable throwable) {
-        return EnvironmentCreateResult.builder().status(ResultStatus.FAILED).message(throwable.getMessage()).build();
+        return EnvironmentCreateResult.builder().status(ResultStatus.FAILED).build();
     }
 
     public static EnvironmentCreateResult systemError(Throwable throwable) {
-        return EnvironmentCreateResult.builder()
-                .status(ResultStatus.SYSTEM_ERROR)
-                .message(throwable.getMessage())
-                .build();
+        return EnvironmentCreateResult.builder().status(ResultStatus.SYSTEM_ERROR).build();
     }
 
     public static EnvironmentCreateResult success(URI environmentBaseUri, String workingDirectory, String sshPassword) {
