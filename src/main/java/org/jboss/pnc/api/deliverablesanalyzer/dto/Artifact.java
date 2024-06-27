@@ -78,6 +78,8 @@ public class Artifact {
 
     private final Collection<String> archiveUnmatchedFilenames;
 
+    private final Collection<LicenseInfo> licenses;
+
     public abstract static class ArtifactBuilder<C extends Artifact, B extends Artifact.ArtifactBuilder<C, B>> {
     }
 
