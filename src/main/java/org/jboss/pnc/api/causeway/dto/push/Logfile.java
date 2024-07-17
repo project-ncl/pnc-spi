@@ -37,7 +37,6 @@ public class Logfile {
     @NonNull
     private final String deployPath;
     private final int size;
-    @NonNull
     private final String md5;
 
 }
