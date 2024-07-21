@@ -21,8 +21,7 @@ import lombok.Value;
 import lombok.experimental.NonFinal;
 import lombok.experimental.SuperBuilder;
 import lombok.extern.jackson.Jacksonized;
-
-import javax.validation.constraints.NotBlank;
+import org.jboss.pnc.api.reqour.dto.validation.ExternalURL;
 
 @Value
 @NonFinal
@@ -30,6 +29,6 @@ import javax.validation.constraints.NotBlank;
 @Jacksonized
 public class TranslateRequest {
 
-    @NotBlank
+    @ExternalURL
     String externalUrl;
 }
