@@ -23,13 +23,12 @@ import org.jboss.pnc.api.dto.validation.DomainNameUtil;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
-import java.net.URL;
 import java.util.regex.Matcher;
 
 /**
  * Validates whether the provided URL is of the format {@link Patterns.NonScpLike} or {@link Patterns.ScpLike}.
  */
-public class ExternalURLValidator implements ConstraintValidator<ExternalURL, URL> {
+public class ExternalURLValidator implements ConstraintValidator<ExternalURL, String> {
 
     private String protocol;
     private String user;
@@ -49,13 +48,12 @@ public class ExternalURLValidator implements ConstraintValidator<ExternalURL, UR
     }
 
     @Override
-    public boolean isValid(URL value, ConstraintValidatorContext context) {
-        String urlAsString = value.toString();
-        if (urlAsString == null || urlAsString.isEmpty()) {
+    public boolean isValid(String value, ConstraintValidatorContext context) {
+        if (value == null || value.isEmpty()) {
             return false;
         }
 
-        ParsedURL url = parseURL(urlAsString);
+        ParsedURL url = parseURL(value);
         if (url == null || filledAndNotMatching(url.getProtocol(), protocol)
                 || filledAndNotMatching(url.getUser(), user) || filledAndNotMatching(url.getHost(), host)
                 || !DomainNameUtil.isValidDomainAddress(url.getHost()) || port != -1 && url.getPort() != port
