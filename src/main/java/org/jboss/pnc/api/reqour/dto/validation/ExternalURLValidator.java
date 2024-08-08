@@ -54,11 +54,11 @@ public class ExternalURLValidator implements ConstraintValidator<ExternalURL, St
         }
 
         ParsedURL url = parseURL(value);
-        if (url == null || filledAndNotMatching(url.getProtocol(), protocol)
-                || filledAndNotMatching(url.getUser(), user) || filledAndNotMatching(url.getHost(), host)
-                || !DomainNameUtil.isValidDomainAddress(url.getHost()) || port != -1 && url.getPort() != port
-                || filledAndNotMatching(url.getOrganization(), organization)
-                || filledAndNotMatching(url.getRepository(), repository)) {
+        if (url == null || filledButNotMatchingParsed(protocol, url.getProtocol())
+                || filledButNotMatchingParsed(user, url.getUser()) || filledButNotMatchingParsed(host, url.getHost())
+                || !DomainNameUtil.isValidDomainAddress(url.getHost()) || (port != -1 && port != url.getPort())
+                || filledButNotMatchingParsed(organization, url.getOrganization())
+                || filledButNotMatchingParsed(repository, url.getRepository())) {
             return false;
         }
 
@@ -99,8 +99,9 @@ public class ExternalURLValidator implements ConstraintValidator<ExternalURL, St
         return null;
     }
 
-    private boolean filledAndNotMatching(String parsedValue, String valueToMatch) {
-        return parsedValue != null && !parsedValue.isEmpty() && !parsedValue.equals(valueToMatch);
+    private boolean filledButNotMatchingParsed(String valueFromAnnotation, String parsedValue) {
+        return valueFromAnnotation != null && !valueFromAnnotation.isEmpty()
+                && !valueFromAnnotation.equals(parsedValue);
     }
 
     private static int computePort(String portMatch) {
