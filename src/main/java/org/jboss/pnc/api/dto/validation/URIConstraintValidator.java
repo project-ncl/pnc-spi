@@ -46,7 +46,7 @@ public class URIConstraintValidator implements ConstraintValidator<ValidURI, URI
             return false;
         }
 
-        if (!DomainNameUtil.isValidDomainAddress(values.getHost())) {
+        if (!DomainNameUtil.isValidDomainAddress(values.getHost(), values.getProtocol())) {
             return false;
         }
 

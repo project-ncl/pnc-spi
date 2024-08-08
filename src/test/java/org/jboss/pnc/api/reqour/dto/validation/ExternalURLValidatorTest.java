@@ -68,6 +68,15 @@ public class ExternalURLValidatorTest {
     }
 
     @Test
+    public void validate_whenFileProtocol_returnsEmptyViolations() {
+        URLRequest request = new URLRequest("file:///tmp/foo/bar");
+
+        Set<ConstraintViolation<URLRequest>> violations = validator.validate(request);
+
+        assertThat(violations).isEmpty();
+    }
+
+    @Test
     public void validate_whenInvalidExternalURL_returnsNonEmptyViolations() {
         URLRequest request = new URLRequest("git@github.com/project/repo.git");
 

@@ -56,7 +56,8 @@ public class ExternalURLValidator implements ConstraintValidator<ExternalURL, St
         ParsedURL url = parseURL(value);
         if (url == null || filledButNotMatchingParsed(protocol, url.getProtocol())
                 || filledButNotMatchingParsed(user, url.getUser()) || filledButNotMatchingParsed(host, url.getHost())
-                || !DomainNameUtil.isValidDomainAddress(url.getHost()) || (port != -1 && port != url.getPort())
+                || !DomainNameUtil.isValidDomainAddress(url.getHost(), url.getProtocol())
+                || (port != -1 && port != url.getPort())
                 || filledButNotMatchingParsed(organization, url.getOrganization())
                 || filledButNotMatchingParsed(repository, url.getRepository())) {
             return false;
@@ -76,6 +77,7 @@ public class ExternalURLValidator implements ConstraintValidator<ExternalURL, St
         final ParsedURL.Builder builder = new ParsedURL.Builder();
         final Matcher nonScpLikeMatcher = Patterns.NonScpLike.PATTERN.matcher(url);
         final Matcher scpLikeMatcher = Patterns.ScpLike.PATTERN.matcher(url);
+        final Matcher fileMatcher = Patterns.FileLike.PATTERN.matcher(url);
 
         if (nonScpLikeMatcher.matches()) {
             return builder.protocol(nonScpLikeMatcher.group(Patterns.NonScpLike.PROTOCOL_GROUP))
@@ -94,6 +96,12 @@ public class ExternalURLValidator implements ConstraintValidator<ExternalURL, St
                     .port(computePort(scpLikeMatcher.group(Patterns.ScpLike.PORT_GROUP)))
                     .organization(scpLikeMatcher.group(Patterns.ScpLike.ORGANIZATION_GROUP))
                     .repository(scpLikeMatcher.group(Patterns.ScpLike.REPOSITORY_GROUP))
+                    .build();
+        }
+
+        if (fileMatcher.matches()) {
+            return builder.protocol(fileMatcher.group(Patterns.FileLike.PROTOCOL_GROUP))
+                    .repository(fileMatcher.group(Patterns.FileLike.REPOSITORY_GROUP))
                     .build();
         }
 

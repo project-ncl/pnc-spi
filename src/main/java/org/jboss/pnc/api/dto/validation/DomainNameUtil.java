@@ -64,7 +64,10 @@ public final class DomainNameUtil {
      * @param domain the domain to check for validity
      * @return {@code true} if the provided string is a valid domain, {@code false} otherwise
      */
-    public static boolean isValidDomainAddress(String domain) {
+    public static boolean isValidDomainAddress(String domain, String protocol) {
+        if ("file".equals(protocol)) {
+            return true;
+        }
         return isValidDomainAddress(domain, DOMAIN_PATTERN);
     }
 
