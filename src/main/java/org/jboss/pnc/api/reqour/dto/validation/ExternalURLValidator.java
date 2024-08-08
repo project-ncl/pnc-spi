@@ -79,6 +79,7 @@ public class ExternalURLValidator implements ConstraintValidator<ExternalURL, St
 
         if (nonScpLikeMatcher.matches()) {
             return builder.protocol(nonScpLikeMatcher.group(Patterns.NonScpLike.PROTOCOL_GROUP))
+                    .user(nonScpLikeMatcher.group(Patterns.NonScpLike.USER_GROUP))
                     .host(nonScpLikeMatcher.group(Patterns.NonScpLike.HOST_GROUP))
                     .port(computePort(nonScpLikeMatcher.group(Patterns.NonScpLike.PORT_GROUP)))
                     .organization(nonScpLikeMatcher.group(Patterns.NonScpLike.ORGANIZATION_GROUP))

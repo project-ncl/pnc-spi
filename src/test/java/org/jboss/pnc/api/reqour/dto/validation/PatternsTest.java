@@ -52,6 +52,21 @@ public class PatternsTest {
     }
 
     @Test
+    void nonScpLike_withUser_isValid() {
+        String externalUrl = "user@github.com/my-repo";
+
+        ExternalURLValidator.ParsedURL url = ExternalURLValidator.parseURL(externalUrl);
+
+        assertThat(url).isNotNull();
+        assertThat(url.getProtocol()).isNull();
+        assertThat(url.getUser()).isEqualTo("user");
+        assertThat(url.getHost()).isEqualTo("github.com");
+        assertThat(url.getPort()).isEqualTo(-1);
+        assertThat(url.getOrganization()).isNull();
+        assertThat(url.getRepository()).isEqualTo("my-repo");
+    }
+
+    @Test
     void nonScpLike_withPort_isValid() {
         String externalUrl = "ssh://github.com:22/my-repo";
 
