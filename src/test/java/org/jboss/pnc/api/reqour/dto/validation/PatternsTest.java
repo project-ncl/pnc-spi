@@ -33,7 +33,7 @@ public class PatternsTest {
         assertThat(url.getHost()).isEqualTo("github.com");
         assertThat(url.getPort()).isEqualTo(-1);
         assertThat(url.getOrganization()).isNull();
-        assertThat(url.getRepository()).isEqualTo("my-repo");
+        assertThat(url.getRepository()).isEqualTo("my-repo.git");
     }
 
     @Test
@@ -93,7 +93,7 @@ public class PatternsTest {
         assertThat(url.getHost()).isEqualTo("gitlab.cee.redhat.com");
         assertThat(url.getPort()).isEqualTo(443);
         assertThat(url.getOrganization()).isEqualTo("best-org-ever");
-        assertThat(url.getRepository()).isEqualTo("my-repo");
+        assertThat(url.getRepository()).isEqualTo("my-repo.git");
     }
 
     @Test

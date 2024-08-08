@@ -27,7 +27,7 @@ public class Patterns {
     public static class NonScpLike {
 
         public static final Pattern PATTERN = Pattern.compile(
-                "^(?:(?<protocol>[\\w+]+)://)?(?<host>[\\w.]+)(?::(?<port>\\d+))?(?:/(?<organization>[\\w-]+))*?/(?<repository>[\\w-]+)(\\.git)?$");
+                "^(?:(?<protocol>[\\w+]+)://)?(?<host>[\\w.]+)(?::(?<port>\\d+))?(?:/(?<organization>[\\w-]+))*?/(?<repository>[\\w-]+(?:\\.git)?)$");
 
         public static final String PROTOCOL_GROUP = "protocol";
         public static final String HOST_GROUP = "host";
