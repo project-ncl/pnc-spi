@@ -21,7 +21,7 @@ import lombok.Value;
 import lombok.experimental.NonFinal;
 import lombok.experimental.SuperBuilder;
 import lombok.extern.jackson.Jacksonized;
-import org.jboss.pnc.api.reqour.dto.validation.ExternalURL;
+import org.jboss.pnc.api.reqour.dto.validation.ValidGitRepositoryURL;
 
 @Value
 @NonFinal
@@ -29,6 +29,6 @@ import org.jboss.pnc.api.reqour.dto.validation.ExternalURL;
 @Jacksonized
 public class TranslateRequest {
 
-    @ExternalURL
+    @ValidGitRepositoryURL
     String externalUrl;
 }

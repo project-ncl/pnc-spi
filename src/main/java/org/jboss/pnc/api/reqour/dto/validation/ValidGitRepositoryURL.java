@@ -29,12 +29,12 @@ import java.lang.annotation.Target;
  * Annotation inspired by {@link org.hibernate.validator.constraints.URL}.
  */
 @Documented
-@Constraint(validatedBy = ExternalURLValidator.class)
+@Constraint(validatedBy = GitRepositoryURLValidator.class)
 @Target({ ElementType.FIELD })
 @Retention(RetentionPolicy.RUNTIME)
-public @interface ExternalURL {
+public @interface ValidGitRepositoryURL {
 
-    String message() default "Invalid external URL";
+    String message() default "Invalid URL of the git repository";
 
     Class<?>[] groups() default {};
 

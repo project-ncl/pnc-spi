@@ -30,7 +30,7 @@ import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class ExternalURLValidatorTest {
+public class ValidGitRepositoryURLValidatorTest {
 
     private static ValidatorFactory validatorFactory;
     private static Validator validator;
@@ -87,7 +87,7 @@ public class ExternalURLValidatorTest {
 
     private static class URLRequest {
 
-        @ExternalURL
+        @ValidGitRepositoryURL
         private final String externalURL;
 
         public URLRequest(String externalURL) {

@@ -10,7 +10,7 @@ public class PatternsTest {
     void nonScpLike_withoutGitSuffix_isValid() {
         String externalUrl = "https://github.com/repo";
 
-        ExternalURLValidator.ParsedURL url = ExternalURLValidator.parseURL(externalUrl);
+        GitRepositoryURLValidator.ParsedURL url = GitRepositoryURLValidator.parseURL(externalUrl);
 
         assertThat(url).isNotNull();
         assertThat(url.getProtocol()).isEqualTo("https");
@@ -25,7 +25,7 @@ public class PatternsTest {
     void nonScpLike_basicOneWithGitSuffix_isValid() {
         String externalUrl = "git+ssh://github.com/my-repo.git";
 
-        ExternalURLValidator.ParsedURL url = ExternalURLValidator.parseURL(externalUrl);
+        GitRepositoryURLValidator.ParsedURL url = GitRepositoryURLValidator.parseURL(externalUrl);
 
         assertThat(url).isNotNull();
         assertThat(url.getProtocol()).isEqualTo("git+ssh");
@@ -40,7 +40,7 @@ public class PatternsTest {
     void nonScpLike_withProtocol_isValid() {
         String externalUrl = "git+ssh://github.com/my-repo";
 
-        ExternalURLValidator.ParsedURL url = ExternalURLValidator.parseURL(externalUrl);
+        GitRepositoryURLValidator.ParsedURL url = GitRepositoryURLValidator.parseURL(externalUrl);
 
         assertThat(url).isNotNull();
         assertThat(url.getProtocol()).isEqualTo("git+ssh");
@@ -55,7 +55,7 @@ public class PatternsTest {
     void nonScpLike_withUser_isValid() {
         String externalUrl = "https://user@github.com/my-repo";
 
-        ExternalURLValidator.ParsedURL url = ExternalURLValidator.parseURL(externalUrl);
+        GitRepositoryURLValidator.ParsedURL url = GitRepositoryURLValidator.parseURL(externalUrl);
 
         assertThat(url).isNotNull();
         assertThat(url.getProtocol()).isEqualTo("https");
@@ -70,7 +70,7 @@ public class PatternsTest {
     void nonScpLike_withPort_isValid() {
         String externalUrl = "ssh://github.com:22/my-repo";
 
-        ExternalURLValidator.ParsedURL url = ExternalURLValidator.parseURL(externalUrl);
+        GitRepositoryURLValidator.ParsedURL url = GitRepositoryURLValidator.parseURL(externalUrl);
 
         assertThat(url).isNotNull();
         assertThat(url.getProtocol()).isEqualTo("ssh");
@@ -85,7 +85,7 @@ public class PatternsTest {
     void nonScpLike_withComplicatedHost_isValid() {
         String externalUrl = "https://gitlab.cee.redhat.com:443/my-repo";
 
-        ExternalURLValidator.ParsedURL url = ExternalURLValidator.parseURL(externalUrl);
+        GitRepositoryURLValidator.ParsedURL url = GitRepositoryURLValidator.parseURL(externalUrl);
 
         assertThat(url).isNotNull();
         assertThat(url.getProtocol()).isEqualTo("https");
@@ -100,7 +100,7 @@ public class PatternsTest {
     void nonScpLike_withOrganization_isValid() {
         String externalUrl = "https://gitlab.cee.redhat.com:443/best-org-ever/my-repo.git";
 
-        ExternalURLValidator.ParsedURL url = ExternalURLValidator.parseURL(externalUrl);
+        GitRepositoryURLValidator.ParsedURL url = GitRepositoryURLValidator.parseURL(externalUrl);
 
         assertThat(url).isNotNull();
         assertThat(url.getProtocol()).isEqualTo("https");
@@ -115,7 +115,7 @@ public class PatternsTest {
     void nonScpLike_noHost_isInvalid() {
         String externalUrl = "/project";
 
-        ExternalURLValidator.ParsedURL url = ExternalURLValidator.parseURL(externalUrl);
+        GitRepositoryURLValidator.ParsedURL url = GitRepositoryURLValidator.parseURL(externalUrl);
 
         assertThat(url).isNull();
     }
@@ -124,7 +124,7 @@ public class PatternsTest {
     void nonScpLike_noRepository_isInvalid() {
         String externalUrl = "github.com";
 
-        ExternalURLValidator.ParsedURL url = ExternalURLValidator.parseURL(externalUrl);
+        GitRepositoryURLValidator.ParsedURL url = GitRepositoryURLValidator.parseURL(externalUrl);
 
         assertThat(url).isNull();
     }
@@ -133,7 +133,7 @@ public class PatternsTest {
     void nonScpLike_withoutProtocol_isInvalid() {
         String externalUrl = "github.com/repo";
 
-        ExternalURLValidator.ParsedURL url = ExternalURLValidator.parseURL(externalUrl);
+        GitRepositoryURLValidator.ParsedURL url = GitRepositoryURLValidator.parseURL(externalUrl);
 
         assertThat(url).isNull();
     }
@@ -142,7 +142,7 @@ public class PatternsTest {
     void nonScpLike_isScpLike_isInvalid() {
         String externalUrl = "github.com:project/repo";
 
-        ExternalURLValidator.ParsedURL url = ExternalURLValidator.parseURL(externalUrl);
+        GitRepositoryURLValidator.ParsedURL url = GitRepositoryURLValidator.parseURL(externalUrl);
 
         assertThat(url).isNull();
     }
@@ -151,7 +151,7 @@ public class PatternsTest {
     void nonScpLike_hasUser_isInvalid() {
         String externalUrl = "git@github.com:project";
 
-        ExternalURLValidator.ParsedURL url = ExternalURLValidator.parseURL(externalUrl);
+        GitRepositoryURLValidator.ParsedURL url = GitRepositoryURLValidator.parseURL(externalUrl);
 
         assertThat(url).isNull();
     }
@@ -160,7 +160,7 @@ public class PatternsTest {
     void nonScpLike_hasForgottenPort_isInvalid() {
         String externalUrl = "github.com:/project";
 
-        ExternalURLValidator.ParsedURL url = ExternalURLValidator.parseURL(externalUrl);
+        GitRepositoryURLValidator.ParsedURL url = GitRepositoryURLValidator.parseURL(externalUrl);
 
         assertThat(url).isNull();
     }
@@ -169,7 +169,7 @@ public class PatternsTest {
     void scpLike_withoutUser_isInvalid() {
         String externalUrl = "github.com:my-repo.git";
 
-        ExternalURLValidator.ParsedURL url = ExternalURLValidator.parseURL(externalUrl);
+        GitRepositoryURLValidator.ParsedURL url = GitRepositoryURLValidator.parseURL(externalUrl);
 
         assertThat(url).isNull();
     }
@@ -178,7 +178,7 @@ public class PatternsTest {
     void scpLike_withUser_isValid() {
         String externalUrl = "git@github.com:my-repo.git";
 
-        ExternalURLValidator.ParsedURL url = ExternalURLValidator.parseURL(externalUrl);
+        GitRepositoryURLValidator.ParsedURL url = GitRepositoryURLValidator.parseURL(externalUrl);
 
         assertThat(url).isNotNull();
         assertThat(url.getProtocol()).isNull();
@@ -193,7 +193,7 @@ public class PatternsTest {
     void scpLike_withPort_isValid() {
         String externalUrl = "git@github.com:22:my-repo.git";
 
-        ExternalURLValidator.ParsedURL url = ExternalURLValidator.parseURL(externalUrl);
+        GitRepositoryURLValidator.ParsedURL url = GitRepositoryURLValidator.parseURL(externalUrl);
 
         assertThat(url).isNotNull();
         assertThat(url.getProtocol()).isNull();
@@ -208,7 +208,7 @@ public class PatternsTest {
     void scpLike_withComplicatedHost_isValid() {
         String externalUrl = "git@gitlab.cee.redhat.com:my-repo.git";
 
-        ExternalURLValidator.ParsedURL url = ExternalURLValidator.parseURL(externalUrl);
+        GitRepositoryURLValidator.ParsedURL url = GitRepositoryURLValidator.parseURL(externalUrl);
 
         assertThat(url).isNotNull();
         assertThat(url.getProtocol()).isNull();
@@ -223,7 +223,7 @@ public class PatternsTest {
     void scpLike_withProtocol_isValid() {
         String externalUrl = "scp://git@gitlab.cee.redhat.com:my-repo.git";
 
-        ExternalURLValidator.ParsedURL url = ExternalURLValidator.parseURL(externalUrl);
+        GitRepositoryURLValidator.ParsedURL url = GitRepositoryURLValidator.parseURL(externalUrl);
 
         assertThat(url).isNotNull();
         assertThat(url.getProtocol()).isEqualTo("scp");
@@ -238,7 +238,7 @@ public class PatternsTest {
     void scpLike_withOrganization_isValid() {
         String externalUrl = "git@gitlab.cee.redhat.com:super-cool-org/my-repo.git";
 
-        ExternalURLValidator.ParsedURL url = ExternalURLValidator.parseURL(externalUrl);
+        GitRepositoryURLValidator.ParsedURL url = GitRepositoryURLValidator.parseURL(externalUrl);
 
         assertThat(url).isNotNull();
         assertThat(url.getProtocol()).isNull();
@@ -253,7 +253,7 @@ public class PatternsTest {
     void scpLike_withOrganizationAndProtocol_isValid() {
         String externalUrl = "git+ssh://git@gitlab.cee.redhat.com:super-cool-org/my-repo.git";
 
-        ExternalURLValidator.ParsedURL url = ExternalURLValidator.parseURL(externalUrl);
+        GitRepositoryURLValidator.ParsedURL url = GitRepositoryURLValidator.parseURL(externalUrl);
 
         assertThat(url).isNotNull();
         assertThat(url.getProtocol()).isEqualTo("git+ssh");
@@ -268,7 +268,7 @@ public class PatternsTest {
     void scpLike_forgottenGitSuffix_isInvalid() {
         String externalUrl = "github.com:my-repo";
 
-        ExternalURLValidator.ParsedURL url = ExternalURLValidator.parseURL(externalUrl);
+        GitRepositoryURLValidator.ParsedURL url = GitRepositoryURLValidator.parseURL(externalUrl);
 
         assertThat(url).isNull();
     }
@@ -277,7 +277,7 @@ public class PatternsTest {
     void scpLike_InvalidPort_isInvalid() {
         String externalUrl = "github.com::my-repo";
 
-        ExternalURLValidator.ParsedURL url = ExternalURLValidator.parseURL(externalUrl);
+        GitRepositoryURLValidator.ParsedURL url = GitRepositoryURLValidator.parseURL(externalUrl);
 
         assertThat(url).isNull();
     }
@@ -286,7 +286,7 @@ public class PatternsTest {
     void scpLike_noHost_isInvalid() {
         String externalUrl = ":my-repo";
 
-        ExternalURLValidator.ParsedURL url = ExternalURLValidator.parseURL(externalUrl);
+        GitRepositoryURLValidator.ParsedURL url = GitRepositoryURLValidator.parseURL(externalUrl);
 
         assertThat(url).isNull();
     }
@@ -295,7 +295,7 @@ public class PatternsTest {
     void fileLike_validAbsoluteWithoutTrailing_isValid() {
         String externalUrl = "file:///tmp/foo/bar";
 
-        ExternalURLValidator.ParsedURL url = ExternalURLValidator.parseURL(externalUrl);
+        GitRepositoryURLValidator.ParsedURL url = GitRepositoryURLValidator.parseURL(externalUrl);
 
         assertThat(url).isNotNull();
         assertThat(url.getProtocol()).isEqualTo("file");
@@ -306,7 +306,7 @@ public class PatternsTest {
     void fileLike_validAbsoluteWithTrailing_isValid() {
         String externalUrl = "file:///tmp/foo/bar/";
 
-        ExternalURLValidator.ParsedURL url = ExternalURLValidator.parseURL(externalUrl);
+        GitRepositoryURLValidator.ParsedURL url = GitRepositoryURLValidator.parseURL(externalUrl);
 
         assertThat(url).isNotNull();
         assertThat(url.getProtocol()).isEqualTo("file");
@@ -317,7 +317,7 @@ public class PatternsTest {
     void fileLike_validRelativeWithTrailing_isValid() {
         String externalUrl = "file://../tmp/foo/";
 
-        ExternalURLValidator.ParsedURL url = ExternalURLValidator.parseURL(externalUrl);
+        GitRepositoryURLValidator.ParsedURL url = GitRepositoryURLValidator.parseURL(externalUrl);
 
         assertThat(url).isNotNull();
         assertThat(url.getProtocol()).isEqualTo("file");

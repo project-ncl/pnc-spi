@@ -28,7 +28,7 @@ import java.util.regex.Matcher;
 /**
  * Validates whether the provided URL is of the format {@link Patterns.NonScpLike} or {@link Patterns.ScpLike}.
  */
-public class ExternalURLValidator implements ConstraintValidator<ExternalURL, String> {
+public class GitRepositoryURLValidator implements ConstraintValidator<ValidGitRepositoryURL, String> {
 
     private String protocol;
     private String user;
@@ -38,7 +38,7 @@ public class ExternalURLValidator implements ConstraintValidator<ExternalURL, St
     private String repository;
 
     @Override
-    public void initialize(ExternalURL annotation) {
+    public void initialize(ValidGitRepositoryURL annotation) {
         this.protocol = annotation.protocol();
         this.user = annotation.user();
         this.host = annotation.host();
@@ -67,7 +67,8 @@ public class ExternalURLValidator implements ConstraintValidator<ExternalURL, St
     }
 
     /**
-     * Parses the provided external URL into the representation, from which it's trivial to get URL parts, e.g. user.
+     * Parses the provided git repository URL into the representation, from which it's trivial to get URL parts, e.g.
+     * user.
      *
      * @param url URL to be parsed
      * @return Parsed representation corresponding to the given URL. In case of invalid URL (=unparsable) was given,

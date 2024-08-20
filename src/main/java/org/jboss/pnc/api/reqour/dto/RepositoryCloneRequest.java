@@ -21,7 +21,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Builder;
 import lombok.Value;
 import lombok.extern.jackson.Jacksonized;
-import org.jboss.pnc.api.reqour.dto.validation.ExternalURL;
+import org.jboss.pnc.api.reqour.dto.validation.ValidGitRepositoryURL;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -44,13 +44,13 @@ public class RepositoryCloneRequest {
     /**
      * Original repository to sync from
      */
-    @ExternalURL
+    @ValidGitRepositoryURL
     String originRepoUrl;
 
     /**
      * Repository to sync to
      */
-    @NotBlank
+    @ValidGitRepositoryURL
     String targetRepoUrl;
 
     /**
