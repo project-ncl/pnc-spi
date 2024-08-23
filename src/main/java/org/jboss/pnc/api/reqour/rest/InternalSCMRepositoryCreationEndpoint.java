@@ -15,7 +15,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jboss.pnc.api.reqour.dto.rest;
+package org.jboss.pnc.api.reqour.rest;
 
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.media.Content;
@@ -25,7 +25,7 @@ import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import org.jboss.pnc.api.constants.OpenapiConstants;
 import org.jboss.pnc.api.dto.ErrorResponse;
-import org.jboss.pnc.api.reqour.dto.RepositoryCloneRequest;
+import org.jboss.pnc.api.reqour.dto.InternalSCMCreationRequest;
 
 import javax.validation.Valid;
 import javax.ws.rs.Consumes;
@@ -34,16 +34,16 @@ import javax.ws.rs.Path;
 import javax.ws.rs.core.MediaType;
 
 /**
- * Endpoint for cloning of the git repository from the provided origin URL to the provided target URL.
+ * Endpoint for creation of internal SCM repository.
  */
-@Tag(name = "Clone")
+@Tag(name = "Internal SCM")
 @Consumes(MediaType.APPLICATION_JSON)
-@Path("/clone")
-public interface CloneEndpoint {
+@Path("/internal-scm")
+public interface InternalSCMRepositoryCreationEndpoint {
 
-    String CLONE_DESC = "Clone git repository from external repository to internal repository";
+    String CREATION_DESC = "Create new internal SCM repository";
 
-    @Operation(summary = CLONE_DESC)
+    @Operation(summary = CREATION_DESC)
     @APIResponses({
             @APIResponse(
                     responseCode = OpenapiConstants.ACCEPTED_CODE,
@@ -57,5 +57,5 @@ public interface CloneEndpoint {
                     description = OpenapiConstants.SERVER_ERROR_DESCRIPTION,
                     content = @Content(schema = @Schema(implementation = ErrorResponse.class))) })
     @POST
-    void clone(@Valid RepositoryCloneRequest cloneRequest);
+    void createInternalSCMRepository(@Valid InternalSCMCreationRequest creationRequest);
 }
