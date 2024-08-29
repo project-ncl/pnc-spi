@@ -21,6 +21,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Builder;
 import lombok.Value;
 import lombok.extern.jackson.Jacksonized;
+import org.jboss.pnc.api.dto.Request;
 import org.jboss.pnc.api.reqour.dto.validation.ValidGitRepositoryURL;
 
 import javax.validation.constraints.NotBlank;
@@ -62,5 +63,5 @@ public class RepositoryCloneRequest {
      * Callback specification
      */
     @NotNull
-    RepositoryCloneCallback callback;
+    Request callback;
 }
