@@ -60,6 +60,12 @@ public class RepositoryCloneRequest {
     String ref;
 
     /**
+     * Task ID which is assigned to the asynchronous execution of the request
+     */
+    @NotBlank
+    String taskId;
+
+    /**
      * Callback specification
      */
     @NotNull
