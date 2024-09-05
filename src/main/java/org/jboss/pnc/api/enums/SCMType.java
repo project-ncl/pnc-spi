@@ -15,36 +15,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jboss.pnc.api.reqour.dto;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.Builder;
-import lombok.Value;
-import lombok.extern.jackson.Jacksonized;
-import org.jboss.pnc.api.enums.ResultStatus;
-
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
+package org.jboss.pnc.api.enums;
 
 /**
- * Response containing information about any reqour's task. Can be used for following callbacks from the invoker, since
- * it contains task ID.
+ * Type of SCM.
  */
-@Builder
-@Value
-@Jacksonized
-@JsonIgnoreProperties(ignoreUnknown = true)
-public class Callback {
+public enum SCMType {
 
-    /**
-     * Status of the operation
-     */
-    @NotNull
-    ResultStatus status;
-
-    /**
-     * Task ID
-     */
-    @NotBlank
-    String id;
+    GIT,
 }
