@@ -15,12 +15,35 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jboss.pnc.api.enums;
+package org.jboss.pnc.api.reqour.dto;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.Builder;
+import lombok.Value;
+import lombok.extern.jackson.Jacksonized;
+import org.jboss.pnc.api.enums.ResultStatus;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 /**
- * Type of SCM.
+ * Callback to the invoker (usually BPM) from Reqour's async tasks.
  */
-public enum SCMType {
+@Builder
+@Value
+@Jacksonized
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class ReqourCallback {
 
-    GIT,
+    /**
+     * Status of the operation
+     */
+    @NotNull
+    ResultStatus status;
+
+    /**
+     * Task ID
+     */
+    @NotBlank
+    String id;
 }

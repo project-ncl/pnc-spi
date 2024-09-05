@@ -21,7 +21,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Builder;
 import lombok.Value;
 import lombok.extern.jackson.Jacksonized;
-import org.jboss.pnc.api.enums.SCMType;
 import org.jboss.pnc.api.reqour.dto.validation.ValidGitRepositoryURL;
 
 import javax.validation.constraints.NotNull;
@@ -34,12 +33,6 @@ import javax.validation.constraints.NotNull;
 @Jacksonized
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class RepositoryCloneResponseCallback {
-
-    /**
-     * Type of scm
-     */
-    @NotNull
-    SCMType type;
 
     /**
      * Original repository to sync from
@@ -59,5 +52,5 @@ public class RepositoryCloneResponseCallback {
     String ref;
 
     @NotNull
-    Callback callback;
+    ReqourCallback callback;
 }
