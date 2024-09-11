@@ -32,7 +32,7 @@ import javax.validation.constraints.NotNull;
 @Value
 @Jacksonized
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class RepositoryCloneResponseCallback {
+public class RepositoryCloneResponse {
 
     /**
      * Original repository to sync from
@@ -51,6 +51,9 @@ public class RepositoryCloneResponseCallback {
      */
     String ref;
 
+    /**
+     * Callback containing information about reqour's async task.
+     */
     @NotNull
     ReqourCallback callback;
 }

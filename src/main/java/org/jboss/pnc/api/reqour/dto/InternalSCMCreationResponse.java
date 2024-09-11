@@ -23,6 +23,8 @@ import lombok.Value;
 import lombok.extern.jackson.Jacksonized;
 import org.jboss.pnc.api.enums.InternalSCMCreationStatus;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * Response DTO of internal repository creation operation.
  */
@@ -33,11 +35,6 @@ import org.jboss.pnc.api.enums.InternalSCMCreationStatus;
 public class InternalSCMCreationResponse {
 
     /**
-     * Status of the repository creation request
-     */
-    InternalSCMCreationStatus status;
-
-    /**
      * Git url that you can use to clone anonymously
      */
     String readonlyUrl;
@@ -46,4 +43,15 @@ public class InternalSCMCreationResponse {
      * Git url that you can use to clone and push content to the Git repository
      */
     String readwriteUrl;
+
+    /**
+     * Status of the repository creation request
+     */
+    InternalSCMCreationStatus status;
+
+    /**
+     * Callback containing information about reqour's async task.
+     */
+    @NotNull
+    ReqourCallback callback;
 }

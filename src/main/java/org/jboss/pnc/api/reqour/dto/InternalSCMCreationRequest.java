@@ -21,8 +21,10 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Builder;
 import lombok.Value;
 import lombok.extern.jackson.Jacksonized;
+import org.jboss.pnc.api.dto.Request;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 /**
  * Request DTO used when creating new internal SCM.
@@ -43,4 +45,10 @@ public class InternalSCMCreationRequest {
      */
     @NotBlank
     String taskId;
+
+    /**
+     * Callback specification
+     */
+    @NotNull
+    Request callback;
 }
