@@ -25,6 +25,8 @@ public class OpenapiConstants {
     public static final String ACCEPTED_CODE = "202";
     public static final String BAD_REQUEST_DESCRIPTION = "Invalid input parameters or validation error";
     public static final String BAD_REQUEST_CODE = "400";
+    public static final String CONFLICT_DESCRIPTION = "Conflict with another existing resources";
+    public static final String CONFLICT_CODE = "409";
     public static final String SERVER_ERROR_DESCRIPTION = "Server error";
     public static final String SERVER_ERROR_CODE = "500";
 }
