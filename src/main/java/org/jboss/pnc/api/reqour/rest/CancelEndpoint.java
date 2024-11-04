@@ -12,10 +12,10 @@ import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import org.jboss.pnc.api.constants.OpenapiConstants;
 import org.jboss.pnc.api.dto.ErrorResponse;
+import org.jboss.pnc.api.reqour.dto.CancelRequest;
 
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
 
 /**
  * Endpoint for cancelling asynchronous tasks.
@@ -40,6 +40,5 @@ public interface CancelEndpoint {
                     description = OpenapiConstants.SERVER_ERROR_DESCRIPTION,
                     content = @Content(schema = @Schema(implementation = ErrorResponse.class))) })
     @POST
-    @Path("/{taskId}")
-    void cancelTask(@PathParam("taskId") String taskId);
+    void cancelTask(CancelRequest cancelRequest);
 }
