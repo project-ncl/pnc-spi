@@ -8,10 +8,11 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Builder;
 import lombok.Value;
 import lombok.extern.jackson.Jacksonized;
-import org.jboss.pnc.api.reqour.dto.validation.GitCommitHash;
+
+import javax.validation.constraints.NotNull;
 
 /**
- * Response DTO of the build alignment operation
+ * Response DTO of the alignment operation
  */
 @Builder
 @Value
@@ -19,22 +20,40 @@ import org.jboss.pnc.api.reqour.dto.validation.GitCommitHash;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class AdjustResponse {
 
-    // TODO: Complete javadocs once second half is done too
-
+    /**
+     * Tag which was pushed. It is a tag over {@link AdjustResponse#getDownstreamCommit()}.
+     */
     String tag;
 
-    @GitCommitHash
+    /**
+     * The commit ID which contains alignment changes
+     */
     String downstreamCommit;
 
+    /**
+     * Git repository internal URL used for cloning and pushing
+     */
     InternalGitRepositoryUrl internalUrl;
 
-    @GitCommitHash
+    /**
+     * The commit ID over which we are doing the alignment
+     */
     String upstreamCommit;
 
+    /**
+     * Boolean flag whether {@link AdjustRequest#getRef()} provided in the request is a reference present in any
+     * internal SCM repository.
+     */
     boolean isRefRevisionInternal;
 
-    // FIXME: Change from Object to more appropriate object, once doing the second half
-    Object adjustResultData;
+    /**
+     * Result of the manipulation operation.<br/>
+     */
+    ManipulatorResult manipulatorResult;
 
+    /**
+     * Callback containing information about Reqour's async task.
+     */
+    @NotNull
     ReqourCallback callback;
 }

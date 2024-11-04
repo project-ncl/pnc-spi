@@ -11,7 +11,7 @@ import lombok.extern.jackson.Jacksonized;
 import org.jboss.pnc.api.reqour.dto.validation.ValidGitRepositoryURL;
 
 /**
- * TODO
+ * Union type for grouping both readonly, and readwrite git URLs.
  */
 @Builder
 @Value

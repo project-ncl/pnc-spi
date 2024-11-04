@@ -20,6 +20,9 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.MediaType;
 
+/**
+ * Endpoint for triggering the alignment operation.
+ */
 @Tag(name = "Adjust")
 @Consumes(MediaType.APPLICATION_JSON)
 @Path("/adjust")
