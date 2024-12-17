@@ -22,6 +22,6 @@ package org.jboss.pnc.api.deliverablesanalyzer.dto;
  * @author jbrazdil
  */
 public enum ArtifactType {
-    MAVEN, NPM
+    MAVEN, NPM, WINDOWS
 
 }
