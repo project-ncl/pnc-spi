@@ -10,6 +10,6 @@ import lombok.extern.jackson.Jacksonized;
 @Jacksonized
 @Builder(builderClassName = "Builder")
 public class BuildCompleted {
-    private final String status;
+    private final PipelineStatus status;
     private final String buildId;
 }
